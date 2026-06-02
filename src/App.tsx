@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Intro from './Intro'
 
 const Sparkle4 = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -189,6 +190,7 @@ function CardBuilder() {
 
 export default function App() {
   const [checked, setChecked] = useState(false)
+  const [showIntro, setShowIntro] = useState(true)
 
   const colors = [
     { name: 'Blue', hex: '#1E4B9A', rgb: 'rgb(30, 75, 154)', usage: 'Primary brand color.', light: false, when: 'Every headline, active nav item, primary button, link, and tag label. If it\'s the most important thing on the page, it\'s Blue.' },
@@ -204,6 +206,7 @@ export default function App() {
 
   return (
     <div className="app">
+      {showIntro && <Intro onDone={() => setShowIntro(false)} />}
       <Sidebar />
       <main className="main-content">
 
